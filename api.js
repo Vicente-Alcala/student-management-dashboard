@@ -1,4 +1,9 @@
-const mockStudentDb = [
+/* ==========================================
+EXERCISE 1: Mock Database State (Populated with
+at least 2 elements into the array in advance.)
+========================================== */
+
+/* const mockStudentDb = [
   {
     id: Date.now(),
     firstName: "Kuruto",
@@ -11,7 +16,15 @@ const mockStudentDb = [
     lastName: "Uchiry",
     email: "rysuke.uchiry@example.com",
   },
-];
+]; */
+
+
+/* ==========================================
+EXERCISE 2: Mock Database State (Empty array 
+to display "No records found." message)
+========================================== */
+
+const mockStudentDb = [];
 
 /**
  * Simulates a GET request to retrieve all students.
@@ -41,13 +54,22 @@ export function addStudentsAPI(newStudentData) {
   return savedStudent;
 }
 
-console.log("Initial DB State: ", getStudentsAPI());
+/* ==========================================
+            (EXERCISE 1) TEST CASES
+========================================== */
 
-const savedStudent = addStudentsAPI({
-  firstName: "Chie",
-  lastName: "Lee",
-  email: "chie.lee@example.com",
-});
+// Test Case 1
 
-console.log("\nReturn Saved Object: ", savedStudent);
-console.log("\nUpdated DB State: ", getStudentsAPI());
+//console.log("Initial DB State: ", getStudentsAPI());
+
+// Test Case 2
+// const savedStudent = addStudentsAPI({
+//   firstName: "Chie",
+//   lastName: "Lee",
+//   email: "chie.lee@example.com",
+// });
+
+// console.log("\nReturn Saved Object: ", savedStudent);
+
+// Test Case 3
+// console.log("\nUpdated DB State: ", getStudentsAPI());
