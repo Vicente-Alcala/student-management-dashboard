@@ -3,28 +3,29 @@ EXERCISE 1: Mock Database State (Populated with
 at least 2 elements into the array in advance.)
 ========================================== */
 
-/* const mockStudentDb = [
+let counter = 0;
+
+const mockStudentDb = [
   {
-    id: Date.now(),
+    id: Date.now() + counter++,
     firstName: "Kuruto",
     lastName: "Uzumakurt",
     email: "kuruto.uzumakurt@example.com",
   },
   {
-    id: Date.now() + 1,
+    id: Date.now() + counter++,
     firstName: "Rysuke",
     lastName: "Uchiry",
     email: "rysuke.uchiry@example.com",
   },
-]; */
-
+];
 
 /* ==========================================
 EXERCISE 2: Mock Database State (Empty array 
 to display "No records found." message)
 ========================================== */
 
-const mockStudentDb = [];
+//const mockStudentDb = [];
 
 /**
  * Simulates a GET request to retrieve all students.
@@ -36,14 +37,14 @@ export function getStudentsAPI() {
 
 /**
  * Simulates a POST request to add a new student.
- * @param {Object} newStudentData - Object containing firstName, 
+ * @param {Object} newStudentData - Object containing firstName,
  * lastName, and email.
- * @returns {Object} The newly created savedStudent object with 
+ * @returns {Object} The newly created savedStudent object with
  * a generated ID.
  */
 export function addStudentsAPI(newStudentData) {
   const savedStudent = {
-    id: Date.now() + 1,
+    id: Date.now() + counter++,
     firstName: newStudentData.firstName,
     lastName: newStudentData.lastName,
     email: newStudentData.email,
@@ -60,16 +61,16 @@ export function addStudentsAPI(newStudentData) {
 
 // Test Case 1
 
-//console.log("Initial DB State: ", getStudentsAPI());
+console.log("Initial DB State: ", getStudentsAPI());
 
 // Test Case 2
-// const savedStudent = addStudentsAPI({
-//   firstName: "Chie",
-//   lastName: "Lee",
-//   email: "chie.lee@example.com",
-// });
+const savedStudent = addStudentsAPI({
+  firstName: "Chie",
+  lastName: "Lee",
+  email: "chie.lee@example.com",
+});
 
-// console.log("\nReturn Saved Object: ", savedStudent);
+console.log("\nReturn Saved Object: ", savedStudent);
 
 // Test Case 3
-// console.log("\nUpdated DB State: ", getStudentsAPI());
+console.log("\nUpdated DB State: ", getStudentsAPI());

@@ -14,7 +14,8 @@ const renderTable = (dataArray) => {
 
   if (!dataArray || dataArray.length == 0) {
     studentTableBody.innerHTML = `<tr>
-        <td colspan="4" style="text-align: center;">No student records found.</td>
+        <td colspan="4" style="text-align: center;">No student records found.
+        </td>
       </tr>
     `;
     return;
@@ -23,13 +24,13 @@ const renderTable = (dataArray) => {
   // Traverse array collections using .forEach()
   dataArray.forEach((student, index) => {
     // Create a new table row element
-    const row = document.createElement('tr');
+    const row = document.createElement("tr");
 
     row.innerHTML = `
         <td>${index + 1}</td>
-        <td>${student.firstName || ''}</td>
-        <td>${student.lastName || ''}</td>
-        <td>${student.email || ''}</td>
+        <td>${student.firstName || ""}</td>
+        <td>${student.lastName || ""}</td>
+        <td>${student.email || ""}</td>
     `;
 
     studentTableBody.appendChild(row);
@@ -64,7 +65,10 @@ studentForm.addEventListener("submit", (event) => {
 
   // Check if a dot exists after the @ symbol
   if (lastDotIndex <= atIndex + 1) {
-    alert("Please enter a valid domain name after the '@' symbol (e.g., domain.com)!");
+    alert(
+      `Please enter a valid domain name after the '@' symbol
+      (e.g., domain.com)!`,
+    );
     return;
   }
 
@@ -81,7 +85,7 @@ studentForm.addEventListener("submit", (event) => {
   };
 
   addStudentsAPI(studentData);
-  
+
   localStudents = getStudentsAPI();
 
   renderTable(localStudents);
