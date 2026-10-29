@@ -52,6 +52,28 @@ studentForm.addEventListener("submit", (event) => {
     return;
   }
 
+  // 2. Validate email structure (@ symbol and a dot in the domain)
+  const atIndex = email.indexOf("@");
+  const lastDotIndex = email.lastIndexOf(".");
+
+  // Check if @ exists and is not the first character
+  if (atIndex === -1 || atIndex === 0) {
+    alert("Please enter a valid email address containing an '@' symbol!");
+    return;
+  }
+
+  // Check if a dot exists after the @ symbol
+  if (lastDotIndex <= atIndex + 1) {
+    alert("Please enter a valid domain name after the '@' symbol (e.g., domain.com)!");
+    return;
+  }
+
+  // Specific check: if the dot is the very last character (e.g. "awha@cd.")
+  if (lastDotIndex === email.length - 1) {
+    alert("There must be characters after the '.' in the email address!");
+    return;
+  }
+
   const studentData = {
     firstName: firstName,
     lastName: lastName,
